@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.skapps.android.csicodathonproject.ui.home.HomeFragment"
+        android:label="Products"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_homeFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/allUsersFragment"
+        android:name="com.skapps.android.csicodathonproject.ui.home.AllUsersFragment"
+        android:label="fragment_all_users"
+        tools:layout="@layout/fragment_all_users" />
+    <fragment
+        android:id="@+id/addProductFragment"
+        android:name="com.skapps.android.csicodathonproject.ui.home.AddProductFragment"
+        android:label="fragment_add_product"
+        tools:layout="@layout/fragment_add_product" />
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.skapps.android.csicodathonproject.ui.home.ProductDetailsFragment"
+        android:label="fragment_product_details"
+        tools:layout="@layout/fragment_product_details" >
+        <argument
+            android:name="product"
+            app:argType="com.skapps.android.csicodathonproject.data.models.Product" />
+        <action
+            android:id="@+id/action_productDetailsFragment_to_reviewsFragment"
+            app:destination="@id/reviewsFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/reviewsFragment"
+        android:name="com.skapps.android.csicodathonproject.ui.home.ReviewsFragment"
+        android:label="fragment_reviews"
+        tools:layout="@layout/fragment_reviews" >
+        <argument
+            android:name="product"
+            app:argType="com.skapps.android.csicodathonproject.data.models.Product" />
+        <action
+            android:id="@+id/action_reviewsFragment_to_reviewDetailsFragment"
+            app:destination="@id/reviewDetailsFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/reviewDetailsFragment"
+        android:name="com.skapps.android.csicodathonproject.ui.home.ReviewDetailsFragment"
+        android:label="fragment_review_details"
+        tools:layout="@layout/fragment_review_details" >
+        <argument
+            android:name="review"
+            app:argType="com.skapps.android.csicodathonproject.data.models.Review" />
+    </fragment>
+    <fragment
+        android:id="@+id/spamsFragment"
+        android:name="com.skapps.android.csicodathonproject.ui.home.SpamsFragment"
+        android:label="Spams"
+        tools:layout="@layout/fragment_spams" >
+        <action
+            android:id="@+id/action_spamsFragment_to_reviewDetailsFragment"
+            app:destination="@id/reviewDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/blockedUsersFragment"
+        android:name="com.skapps.android.csicodathonproject.ui.home.BlockedUsersFragment"
+        android:label="Blocked Users"
+        tools:layout="@layout/fragment_blocked_users" />
+</navigation>
